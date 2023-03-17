@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+	<head>
+		<title>The List</title>
+		<link rel="stylesheet" href="{% static 'main.css' %}">
+        <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.css' %}">
+
+		<script src="{% static '/bootstrap/jquery-3.4.1.slim.min.js' %}"></script>
+		<script src="{% static '/bootstrap/popper.min.js' %}"></script>
+		<script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<nav class="navbar navbar-dark bg-custom mb-3 sticky-top" style="background-color: #990011FF;">
+			<h1 style="color:white">Grab Grub!</h1>
+			<a href="{% url 'addorder' %}" style="color:white"><i class="material-icons">Add an order!</i></a>
+			<a href="{% url 'addcustomer' %}" style="color:white"><i class="material-icons">Add a Customer!</i></a>
+            <a href="{% url 'addfood' %}" style="color:white"><i class="material-icons">Add a Dish!</i></a>
+            <a href="{% url 'viewfoodlist' %}" style="color:white"><i class="material-icons">View Food List!</i></a>
+            <a href="{% url 'viewcustomerlist' %}" style="color:white"><i class="material-icons">View Customer List!</i></a>
+			<a href="{% url 'view_orders' %}" style="color:white"><i class="material-icons">View Orders List!</i></a>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+
+				{% block content %}
+				{% endblock %}
+
+			</div>
+		</div>  
+		
+		<div class="justify-content-center fixed-bottom" style="background-color: #990011FF; color:white;" >
+			<div class="col pb-3 text-center">
+				@2021
+			</div>
+		</div>
+	</body>
+</html>

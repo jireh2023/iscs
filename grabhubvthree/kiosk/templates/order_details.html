@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+	<div class="card">
+		<div class="card-header">
+			<h5 class="card-title">Order Details:</h5>
+		</div>
+		<div class="card-body">
+			<h2> {{ o.food }} </h2>
+			<p>
+				Quantity: {{ o.qty }}
+			</p>
+            <p>
+                Ordered At: {{ o.ordered_at }}
+            </p>
+            <p>
+                Customer: {{ o.cust_order }}
+            </p>
+            <p>
+                Payment Mode: {{ o.payment_mode }}
+            </p>
+            <p>
+				<a href="{% url 'updateorder' pk=o.pk %}"  class="btn btn-success">Update</a>
+				<a href="{% url 'deleteorder' pk=o.pk %}"  class="btn btn-danger">Delete</a>
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

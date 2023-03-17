@@ -1,0 +1,79 @@
+
+html{
+	font-size: 10px;
+	border-width: 1px;
+	max-width: 1900px;
+}
+
+body{
+	background-color: #FCF6F5FF;
+	font-family: 'Roboto', sans-serif;
+	font-size: 2em;
+
+}
+
+.sidelinks {
+	font-size: 20px;
+	text-decoration: underline;
+	padding-bottom: 2em;
+	color: #000000;
+}
+
+.sidelinks:hover{ 
+	background-color: rgb(221, 221, 221); 
+}
+
+td {
+	text-align: left;
+}
+
+header{
+	font-family:  'Faster One', cursive;
+	background-color: #990011FF;
+	width:1920px;
+}
+
+h1{
+	font-size: 3em;
+}
+
+h5 {
+	font-size: 32px;
+}
+
+h6 {
+	font-size: 32px;
+}
+
+hr {
+	background-color: black;
+}
+.images{
+	max-width: 10em;
+	height: auto;
+}
+
+footer {
+	width: 1900px;
+}
+
+ /* Remove the navbar's default margin-bottom and rounded borders */ 
+ .navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+  }
+  
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {
+	  height: 830px
+	  
+	}
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+	color: black;
+	padding-top: 20px;
+	background-color: #f1f1f1;
+	height: 100%;
+  }
+  

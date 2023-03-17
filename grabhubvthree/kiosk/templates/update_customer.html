@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="col-12" class="mt-5 mb-5">
+    <h1>Update c    ustomer here</h1>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <p style="color:red;">{{ message }}</p>
+            {% else %}
+                <p style="color:green;">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <form action="{% url 'updatecustomer' pk=c.pk %}" method="POST">{% csrf_token %}
+            <div class="form-group">
+                <label for="customername">Name: </label>
+                <input class="form-control" type="text" name="customername" value="{{c.customername}}" disabled>
+            </div>
+
+        <div class="form-group">
+            <label for="address">Address: </label>
+            <input class="form-control" type="text" name="address" value="{{c.address}}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City: </label>
+            <input class="form-control" type="text" name="city" value="{{c.city}}" required>
+        </div>
+
+        <input type="submit" class="btn btn-danger">
+    </form>
+</div>
+{% endblock %}

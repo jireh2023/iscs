@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class="alert alert-success" style="color:green;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <table id="customer_table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th scope="col">More Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in customer %}
+                <tr>
+                    <td>{{c.customername}}</td>
+                    <td>{{c.address}}</td>
+                    <td>{{c.city}}</td>
+                    <td><a href="{% url 'viewcustomer' pk=c.pk %}" id="details">Details</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

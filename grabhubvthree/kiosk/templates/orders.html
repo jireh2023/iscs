@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class="alert alert-success" style="color:green;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <table id="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Food</th>
+                <th>Quantity</th>
+                <th>Ordered At</th>
+                <th>Customer Name</th>
+                <th>Payment Mode</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in orders %}
+                <tr>
+                    <td>{{ o.food }}</td>
+                    <td>{{ o.qty }}</td>
+                    <td>{{ o.ordered_at }}</td>
+                    <td>{{ o.cust_order }}</td>
+                    <td>{{ o.payment_mode }}</td>
+                    <td><a href="{% url 'order_details' pk=o.pk %}" id="details">Details</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

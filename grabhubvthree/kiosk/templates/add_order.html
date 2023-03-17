@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="add_waterbot" class="mt-5 mb-5">
+
+        <h1>Add Order</h1>
+
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <p style="color:red;">{{ message }}</p>
+                {% else %}
+                    <p style="color:green;">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <form action="{% url 'addorder' %}" method="POST">{% csrf_token %}
+            <div class="form-group mt-4">
+                <label for="food">Food: </label>
+                <select name="food" required>
+                    {% for f in foodlist %}
+                        <option value="{{f.name}}">{{f.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="brand">Quantity: </label>
+                <input class="form-control" type="text" name="qty" required>
+            </div>
+
+            <div class="form-group">
+                <label for="orderedat">Ordered at: </label>
+                <input class="form-control" type="datetime-local" name="ordered_at" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+            </div>
+
+            <div class="form-group mt-4">
+                <label for="supplied_by">Customer: </label>
+                <select name="cust_order" required>
+                    {% for c in customer %}
+                        <option value="{{c.customername}}">{{c.customername}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="current_qty">Payment Method: </label>
+                <input class="form-control" type="text" name="payment_mode">
+            </div>
+
+            <input type="submit" class="btn btn-danger">
+        </form>
+    </div>
+{% endblock %}

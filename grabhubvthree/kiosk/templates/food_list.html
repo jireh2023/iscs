@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+<div class="col-12">
+    <table id="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Created At</th>
+                <th scope="col">More Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in foodlist %}
+                <tr>
+                    <td>{{ f.name }}</td>
+                    <td>{{ f.description }}</td>
+                    <td>{{ f.price }}</td>
+                    <td>{{ f.created_at }}</td>
+                    <td><a href="{% url 'viewfood' pk=f.pk %}" id="details">Details</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+	<div class="card">
+		<div class="card-header">
+			<h5 class="card-title">Customer Details:</h5>
+		</div>
+		<div class="card-body">
+			<h2> NAME: {{f.name}} </h2>
+			<p>
+				DESCRIPTION: {{f.description}}
+			</p>
+			<p>
+				PRICE: {{f.price}}
+			</p>
+            <p>
+				CREATED AT: {{f.created_at}}
+			</p>
+            <p>
+				<a href="{% url 'updatefood' pk=f.pk %}"  class="btn btn-success">Update</a>
+				<a href="{% url 'deletefood' pk=f.pk %}"  class="btn btn-danger">Delete</a>
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
